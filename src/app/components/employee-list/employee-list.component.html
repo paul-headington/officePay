@@ -1,0 +1,68 @@
+<section class="container px-4 mx-auto">
+    <div class="sm:flex sm:items-center sm:justify-between mt-4">
+        <div>
+            <div class="flex items-center gap-x-3">
+                <h2 class="text-lg font-medium text-gray-800 dark:text-white">Employees</h2>
+            </div>
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">Employees of Office Pay</p>
+        </div>        
+    </div>
+    <div class="flex flex-col mt-6">
+        <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only" id="loading">Loading...</span>
+                        </div>
+                    </div>
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Title</th>
+                                <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">First Name</th>
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Last Name</th>
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Employee Code</th>
+                                <th scope="col" class="relative py-3.5 px-4"><span class="sr-only">Edit</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+
+                            <tr *ngFor="let employee of employees">
+                                <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                                    <div class="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
+                                        {{ employee.title }}
+                                    </div>
+                                    
+                                </td>
+                                <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
+                                    <div>
+                                        <span class="font-medium text-gray-800 dark:text-white ">{{ employee.firstname }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
+                                    <div>
+                                        <span class="font-medium text-gray-800 dark:text-white ">{{ employee.lastname }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
+                                    <div>
+                                        <span class="font-medium text-gray-800 dark:text-white ">{{ employee.employeecode }}</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button (click)="employeeDetails(employee.employeecode)"  class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>   
