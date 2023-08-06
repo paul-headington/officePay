@@ -1,5 +1,17 @@
 # OfficePay
 
+
+## Next Steps
+
+- Mobile menu action
+- Date picker
+- Setup enviromental constants, and move API urls
+- Flesh out unit tests
+- Add percy testing to pipeline
+- Add editing to paypacket components
+- add table sort/search
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 
 ## Development server
