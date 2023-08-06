@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Paypacket } from 'src/app/models/paypacket';
 import { PaypacketService } from 'src/app/services/paypacket.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pay-packet-detail',
@@ -13,11 +14,13 @@ export class PayPacketDetailComponent implements OnInit {
   id!: number;
   paypacket!: Paypacket;
   statuses = ['Pending','Executed','Paid'];
+  
 
   constructor(
     private paypacketService: PaypacketService, 
     private route: ActivatedRoute, 
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
     ) { }
 
   ngOnInit() {
@@ -37,5 +40,10 @@ export class PayPacketDetailComponent implements OnInit {
 
   public savePaypacket(data: Paypacket){
     console.log(data);
+    this.paypacketService.updatePaypacket(this.id, data)
+      .subscribe(res => {
+        console.log(res);
+        this.toastr.success('Successfully saved', 'PayPacket');
+      })
   }
 }

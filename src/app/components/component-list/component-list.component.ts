@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Component as  iComponent } from 'src/app/models/component';
 import { ComponentService } from 'src/app/services/component.service';
 
@@ -8,18 +8,14 @@ import { ComponentService } from 'src/app/services/component.service';
   templateUrl: './component-list.component.html',
   styleUrls: ['./component-list.component.css']
 })
-export class ComponentListComponent implements OnInit {
+export class ComponentListComponent  {
 
-  components!: iComponent[];
+  @Input() components!: iComponent[];
+  @Input() paypacketId!: number;
   component: iComponent = new iComponent();
 
   constructor(
     private componentService: ComponentService, 
   ) { }
 
-  ngOnInit() {
-    this.componentService.getComponents().subscribe(data => {
-      this.components = data;
-    })
-  }
 }

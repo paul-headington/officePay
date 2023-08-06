@@ -4,7 +4,7 @@
             <div class="flex items-center gap-x-3">
                 <h2 class="text-lg font-medium text-gray-800 dark:text-white">Components</h2>
             </div>
-            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">Components of PayPacket X</p>
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">Components of PayPacket {{paypacketId}}</p>
         </div>        
     </div>
     <div class="flex flex-col mt-6">
@@ -46,12 +46,12 @@
                                 </td>
                                 <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
                                     <div>
-                                        <p class="font-medium text-gray-800 dark:text-white ">{{ component.payRate }}</p>
+                                        <p class="font-medium text-gray-800 dark:text-white ">{{ component.payRate | currency }}</p>
                                     </div>
                                 </td>
                                 <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
                                     <div>
-                                        <p class="font-medium text-gray-800 dark:text-white ">{{ component.paymentValue }}</p>
+                                        <p class="font-medium text-gray-800 dark:text-white ">{{ component.paymentValue | currency }}</p>
                                     </div>
                                 </td>
                             </tr>
